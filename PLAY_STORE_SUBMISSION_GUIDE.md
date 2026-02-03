@@ -150,6 +150,12 @@ Expected Rating: **Everyone** or **Everyone 10+**
 - Host it on your website or GitHub
 - Include details about data collection (email, progress stats)
 
+**URLs (app hosted on Vercel):**
+- **Privacy Policy:** https://breath-beryl.vercel.app/privacy  
+- **Terms of Service:** https://breath-beryl.vercel.app/terms  
+
+Use the Privacy Policy URL in Play Console when asked for the app’s privacy policy link.
+
 ### Target Audience
 - **Age:** 13+ (or Everyone)
 - **Primary Audience:** Adults seeking stress relief and wellness
@@ -344,7 +350,7 @@ You now have all the required graphical assets for Google Play Store submission:
 3. **Create new app listing:**
    - Upload all assets from `assets/store-graphics/`
    - Fill in app details (name, description, category)
-   - Add privacy policy URL
+   - Add privacy policy URL: **https://breath-beryl.vercel.app/privacy**
    - Complete content rating
 
 4. **Upload APK/AAB:**

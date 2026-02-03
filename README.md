@@ -2,6 +2,8 @@
 
 Breathing exercises app – control anxiety, focus, and sleep with guided protocols. Built with Expo (React Native), Supabase (auth + database), and TypeScript.
 
+**Live (web):** [https://breath-beryl.vercel.app/](https://breath-beryl.vercel.app/)
+
 ## Features
 
 - **Auth** – Sign up / sign in with email and password (Supabase Auth)
@@ -47,6 +49,21 @@ Breathing exercises app – control anxiety, focus, and sleep with guided protoc
 | `npm run build:web`  | Export static web build    |
 | `npm run lint`   | Run ESLint                     |
 | `npm run typecheck` | Run TypeScript check        |
+
+## Deploy to Vercel (web)
+
+The repo is set up for one-click deploy on [Vercel](https://vercel.com):
+
+1. **Import** the GitHub repo in Vercel (New Project → Import from GitHub).
+2. **Build settings** (set in Vercel if not auto-detected):
+   - **Build Command:** `npm run build:web`
+   - **Output Directory:** `dist`
+   - **Install Command:** `npm install`
+3. **Environment variables** (Project Settings → Environment Variables):
+   - `EXPO_PUBLIC_SUPABASE_URL` = your Supabase project URL
+   - `EXPO_PUBLIC_SUPABASE_ANON_KEY` = your Supabase anon key
+
+`vercel.json` in the repo configures rewrites so client-side routes (e.g. `/privacy`, `/terms`) work on the deployed site.
 
 ## Mobile
 
