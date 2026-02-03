@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Switch, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Bell, Camera, Heart, Info, Circle as HelpCircle, LogOut, User, WifiOff } from 'lucide-react-native';
+import { Bell, Camera, Heart, Info, Circle as HelpCircle, LogOut, User, WifiOff, FileText, Scale } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 import { logout, getUser, getProfileSettings, updateProfileSettings } from '@/utils/auth';
 import { useIsOnline } from '@/hooks/useIsOnline';
@@ -102,10 +102,35 @@ export default function SettingsScreen() {
         },
       ],
     },
+    {
+      section: 'Legal',
+      items: [
+        {
+          id: 'privacy',
+          title: 'Privacy Policy',
+          subtitle: 'How we collect and use your data',
+          icon: FileText,
+          type: 'action' as const,
+          route: '/privacy' as const,
+        },
+        {
+          id: 'terms',
+          title: 'Terms of Service',
+          subtitle: 'Terms and conditions of use',
+          icon: Scale,
+          type: 'action' as const,
+          route: '/terms' as const,
+        },
+      ],
+    },
   ];
 
-  const handleActionPress = (id: string) => {
-    // Handle navigation to info screens
+  const handleActionPress = (id: string, route?: string) => {
+    if (route) {
+      router.push(route as '/privacy' | '/terms');
+      return;
+    }
+    // Handle other info screens
     console.log('Action pressed:', id);
   };
 
@@ -135,7 +160,7 @@ export default function SettingsScreen() {
                   <TouchableOpacity
                     key={item.id}
                     style={styles.settingItem}
-                    onPress={() => item.type === 'action' && handleActionPress(item.id)}
+                    onPress={() => item.type === 'action' && handleActionPress(item.id, 'route' in item ? item.route : undefined)}
                     disabled={item.type === 'toggle'}
                     activeOpacity={item.type === 'action' ? 0.7 : 1}
                   >

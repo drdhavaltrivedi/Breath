@@ -16,6 +16,9 @@ module.exports = {
     extra: {
       supabaseUrl,
       supabaseAnonKey,
+      eas: {
+        projectId: 'e42e41c3-88b0-4f66-b5cc-294f96399bfc',
+      },
     },
     // Prevent "Failed to download remote update" on Android: load only from Metro in dev
     updates: {
